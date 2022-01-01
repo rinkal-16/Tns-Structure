@@ -1,0 +1,2 @@
+# Tns-Structure
+NativeScript Project
