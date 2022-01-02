@@ -49,6 +49,8 @@
     "@nativescript/angular": "~11.8.0",
     "@nativescript/core": "~8.0.0",
     "@nativescript/theme": "~3.0.1",
+    "@nstudio/nativescript-loading-indicator": "^4.1.2",
+    "nativescript-exit": "^1.0.1",
     "reflect-metadata": "~0.1.13",
     "rxjs": "~6.6.7",
     "zone.js": "~0.11.4"

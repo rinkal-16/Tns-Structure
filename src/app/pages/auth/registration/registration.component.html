@@ -1,0 +1,89 @@
+<ScrollView id="scroll" orientation="vertical" #myScroller>
+    <StackLayout verticalAlignment="center">
+        <Label text="Registration form" class="m-b-5 m-t-16 f-20" horizontalAlignment="center"></Label>
+        <form [formGroup]="registrationForm" class="nt-form m-20 p-20" marginTop="10" novalidate>
+            <StackLayout class="form-group">
+                <TextField hint="Enter first name" style.placeholderColor="#808080"
+                           marginBottom="5"
+                           keyboardType="email" autocorrect="false"
+                           formControlName="first_name"
+                           autocapitalizationType="none"
+                           class="-border f-14 -rounded-lg form-control"
+                ></TextField>
+            </StackLayout>
+            <StackLayout class="m-l-15">
+                <small *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                    <Label class="text-danger Raleway-Regular error-text" *ngIf="f.first_name.errors"
+                           text="First name required"></Label>
+                </small>
+            </StackLayout>
+            <StackLayout class="form-group">
+                <TextField hint="Enter last name" style.placeholderColor="#808080"
+                           marginBottom="5"
+                           keyboardType="email" autocorrect="false"
+                           formControlName="last_name"
+                           autocapitalizationType="none"
+                           class="-border f-14 -rounded-lg form-control"
+                ></TextField>
+            </StackLayout>
+            <StackLayout class="m-l-15">
+                <small *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+                    <Label class="text-danger Raleway-Regular error-text" *ngIf="f.last_name.errors"
+                           text="Last name required"></Label>
+                </small>
+            </StackLayout>
+            <StackLayout class="form-group">
+                <TextField hint="Enter email" style.placeholderColor="#808080"
+                           marginBottom="5"
+                           keyboardType="email" autocorrect="false"
+                           formControlName="email"
+                           autocapitalizationType="none"
+                           class="-border f-14 -rounded-lg form-control"
+                ></TextField>
+            </StackLayout>
+            <StackLayout class="m-l-15">
+                <small *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <Label class="text-danger Raleway-Regular error-text" *ngIf="f.email.errors.required"
+                           text="Email required"></Label>
+                    <Label class="text-danger Raleway-Regular error-text" *ngIf="f.email.errors.email"
+                           text="Invalid email"></Label>
+                </small>
+            </StackLayout>
+            <StackLayout>
+                <TextField hint="Password" style.placeholderColor="#808080"
+                           class="-border f-14 -rounded-lg form-control"
+                           marginBottom="5" [(ngModel)]="password"
+                           keyboardType="number"
+                           formControlName="password">
+                </TextField>
+            </StackLayout>
+            <StackLayout class="m-l-15">
+                <small *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <Label class="text-danger Raleway-Regular error-text" *ngIf="f.password.errors.required"
+                           text="Password required"></Label>
+                </small>
+            </StackLayout>
+
+            <StackLayout>
+                <TextField hint="Confirst password" style.placeholderColor="#808080"
+                           class="-border f-14 -rounded-lg form-control"
+                           marginBottom="5"
+                           keyboardType="number"
+                           formControlName="confirm_password">
+                </TextField>
+            </StackLayout>
+            <StackLayout class="m-l-15">
+                <small *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
+                    <Label class="text-danger Raleway-Regular error-text" *ngIf="f.confirm_password.errors.required"
+                           text="Confirm password required"></Label>
+                </small>
+                <small class="invalid-feedback"> <!--confirmPassword.length != 0 && password.length!= 0 && -->
+                    <Label class="text-danger p-l-20" *ngIf="f.confirm_password.hasError('mustMatch')"
+                           text="Password and Confirm Password must be matched."></Label>
+                </small>
+            </StackLayout>
+            <Button text="Submit" (tap)="onSubmit()" class="-rounded-lg" height="50"></Button>
+
+        </form>
+    </StackLayout>
+</ScrollView>

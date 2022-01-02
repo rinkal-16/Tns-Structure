@@ -1,0 +1,42 @@
+<ScrollView id="scroll" orientation="vertical" #myScroller>
+    <StackLayout verticalAlignment="center">
+        <Label text="Login form" class="m-b-5 m-t-16 f-20" horizontalAlignment="center"></Label>
+        <form [formGroup]="loginForm" class="nt-form m-20 p-20" marginTop="10" (submit)="onSubmit()" novalidate>
+            <StackLayout class="form-group">
+                        <TextField hint="Enter email" style.placeholderColor="#808080"
+                                   marginBottom="5"
+                                   keyboardType="email" autocorrect="false"
+                                   formControlName="email"
+                                   autocapitalizationType="none"
+                                   class="-border f-14 -rounded-lg placeholder-color form-control"
+                        ></TextField>
+            </StackLayout>
+            <StackLayout class="m-l-15">
+                <small *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <Label class="text-danger Raleway-Regular error-text" *ngIf="f.email.errors.required"
+                           text="Email required"></Label>
+                    <Label class="text-danger Raleway-Regular error-text" *ngIf="f.email.errors.email"
+                           text="Invalid email"></Label>
+                </small>
+
+            </StackLayout>
+            <StackLayout>
+                <TextField hint="Password" formControlName="password"
+                           class="-border f-14 -rounded-lg form-control" style.placeholderColor="#808080"
+                           marginBottom="5"
+                           keyboardType="number"
+                           >
+                </TextField>
+            </StackLayout>
+            <StackLayout class="m-l-15">
+                <small *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <Label class="text-danger Raleway-Regular error-text"
+                           text="Password required"></Label>
+                </small>
+            </StackLayout>
+            <Button text="Submit" (tap)="onSubmit()" class="-rounded-lg p-10" height="50" [disabled]="loginForm.invalid"></Button>
+            <Button text="Register" (tap)="onSignup()" class="-rounded-lg" height="50"></Button>
+
+        </form>
+    </StackLayout>
+</ScrollView>
