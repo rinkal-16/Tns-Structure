@@ -15,7 +15,7 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.android.ts", "src/**/*.ios.ts", "src/tests/*.ts"],
-  "files": ["./src/main.ts", "./references.d.ts"],
+  "include": ["src/**/*.android.ts", "src/**/*.ios.ts", "/tests/*.ts"],
+  "files": ["./src/main.ts", "./references.d.ts", "./src/tests/example.ts"],
   "exclude": ["node_modules", "platforms", "e2e"]
 }
